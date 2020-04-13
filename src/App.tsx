@@ -40,7 +40,7 @@ const App: React.FC<Props> = ({ coins, diffCoins, setCoinsDiffTC, setAllCoinsTC,
 
     setInterval(() => {
       setCoinsDiffTC()
-    }, 30 * 1000)
+    }, 60 * 1000)
 
   }, [])
 

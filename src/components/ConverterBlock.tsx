@@ -84,7 +84,7 @@ const ConverterBlock: React.FC<Props> = ({ classes, items, setFirstConverterCoin
     <Paper className={classes.paper}>
       <div className={classes.cryptoInputBox}>
         <FormControl className={classes.currencyInput}>
-          <TextField fullWidth label="Value" value={firstField} onChange={e => fieldChecking(e.target.value, 1)} />
+          <TextField type="number" fullWidth label="Value" value={firstField} onChange={e => fieldChecking(e.target.value, 1)} />
         </FormControl>
         <FormControl className={classes.currencyType}>
           <InputLabel id="demo-simple-select-label">Currency</InputLabel>
@@ -100,7 +100,7 @@ const ConverterBlock: React.FC<Props> = ({ classes, items, setFirstConverterCoin
       </div>
       <div className={classes.cryptoInputBox}>
         <FormControl className={classes.currencyInput}>
-          <TextField fullWidth label="Value" value={secondField} onChange={e => fieldChecking(e.target.value, 2)} />
+          <TextField type="number" fullWidth label="Value" value={secondField} onChange={e => fieldChecking(e.target.value, 2)} />
         </FormControl>
         <FormControl className={classes.currencyType}>
           <InputLabel id="demo-simple-select-label">Currency</InputLabel>
