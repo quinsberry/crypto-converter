@@ -2,6 +2,21 @@ import { TRootReducer } from '../redux/store'
 
 export type TAppState = ReturnType<TRootReducer>
 
+export type TFetchedCoin = {
+  CoinInfo: {
+    Name: string
+    FullName: string
+    ImageUrl: string
+  }
+  DISPLAY: any
+  RAW: {
+    USD: {
+      PRICE: number
+      VOLUME24HOUR: number
+    }
+  }
+}
+
 export type TCoin = {
   name: string;
   fullName: string;

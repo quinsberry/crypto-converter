@@ -1,7 +1,7 @@
 import { getCoins } from '../../api/api'
 import { ThunkAction } from 'redux-thunk'
 
-import { TCoin, TCoinDiff, TConverterCoin, TConverter, TAppState } from '../../types/types'
+import { TCoin, TCoinDiff, TConverterCoin, TConverter, TAppState, TFetchedCoin } from '../../types/types'
 
 
 const SET_ALL_COINS = 'coins/SET_ALL_COINS'
@@ -170,13 +170,13 @@ export const setAllCoinsTC = (): TThunk => {
     dispatch(isFetching())
 
     const res = await getCoins()
-    const coins: TCoin[] = res.map((coin: any) => {
+    const coins: TCoin[] = res.map((coin: TFetchedCoin) => {
       const obj: TCoin = {
         name: coin.CoinInfo.Name,
         fullName: coin.CoinInfo.FullName,
         imageUrl: `https://www.cryptocompare.com/${coin.CoinInfo.ImageUrl}`,
         price: Number(coin.RAW.USD.PRICE.toFixed(3)),
-        volume24hour: parseInt(coin.RAW.USD.VOLUME24HOUR)
+        volume24hour: Number(coin.RAW.USD.VOLUME24HOUR.toFixed(0))
       }
       return obj
     })
@@ -192,13 +192,13 @@ export const setCoinsDiffTC = (): TThunk => {
     // dispatch(isFetching())
 
     const res = await getCoins()
-    const coins: TCoin[] = res.map((coin: any) => {
+    const coins: TCoin[] = res.map((coin: TFetchedCoin) => {
       const obj: TCoin = {
         name: coin.CoinInfo.Name,
         fullName: coin.CoinInfo.FullName,
         imageUrl: `https://www.cryptocompare.com/${coin.CoinInfo.ImageUrl}`,
         price: Number(coin.RAW.USD.PRICE.toFixed(3)),
-        volume24hour: parseInt(coin.RAW.USD.VOLUME24HOUR)
+        volume24hour: Number(coin.RAW.USD.VOLUME24HOUR.toFixed(0))
       }
       return obj
     })
