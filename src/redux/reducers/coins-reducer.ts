@@ -1,6 +1,7 @@
 import { getCoins } from '../../api/api'
+import { ThunkAction } from 'redux-thunk'
 
-import { TCoin, TCoinDiff, TConverterCoin, TConverter } from '../../types/types'
+import { TCoin, TCoinDiff, TConverterCoin, TConverter, TAppState } from '../../types/types'
 
 
 const SET_ALL_COINS = 'coins/SET_ALL_COINS'
@@ -160,9 +161,12 @@ export const isFetching = (): ATIsFetching => {
   }
 }
 
+type TActions = ATSetAllCoins | ATSetCoinsDiff | ATSetFirstConverterCoin | ATSetSecondConverterCoin | ATDiffCoinsNulled | ATIsFetching
 
-export const setAllCoinsTC = () => {
-  return async (dispatch: any) => {
+type TThunk = ThunkAction<Promise<void>, TAppState, unknown, TActions>
+
+export const setAllCoinsTC = (): TThunk => {
+  return async (dispatch) => {
     dispatch(isFetching())
 
     const res = await getCoins()
@@ -183,8 +187,8 @@ export const setAllCoinsTC = () => {
   }
 }
 
-export const setCoinsDiffTC = () => {
-  return async (dispatch: any) => {
+export const setCoinsDiffTC = (): TThunk => {
+  return async (dispatch) => {
     // dispatch(isFetching())
 
     const res = await getCoins()

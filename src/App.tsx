@@ -9,8 +9,7 @@ import { getCoins, getDiffCoins, getConverter } from './redux/selectors/coins-re
 import { Container, Grid } from '@material-ui/core'
 import useStyles from './styles'
 
-import { TCoin, TCoinDiff, TConverter, TConverterCoin } from './types/types'
-import { TAppState } from './redux/store'
+import { TCoin, TCoinDiff, TConverter, TConverterCoin, TAppState } from './types/types'
 
 
 type Props = TMapState & TMapDispatch

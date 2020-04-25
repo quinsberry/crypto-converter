@@ -7,8 +7,8 @@ const rootReducer = combineReducers({
   coinsReducer
 });
 
-type TRootReducer = typeof rootReducer
-export type TAppState = ReturnType<TRootReducer>
+export type TRootReducer = typeof rootReducer
+
 
 // @ts-ignore
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

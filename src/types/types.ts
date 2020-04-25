@@ -1,3 +1,7 @@
+import { TRootReducer } from '../redux/store'
+
+export type TAppState = ReturnType<TRootReducer>
+
 export type TCoin = {
   name: string;
   fullName: string;

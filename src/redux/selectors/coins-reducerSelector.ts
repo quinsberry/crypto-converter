@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect'
-import { TAppState } from '../store'
+import { TAppState } from '../../types/types'
 
 const getCoinsS = (state: TAppState) => {
   return state.coinsReducer.coins;
